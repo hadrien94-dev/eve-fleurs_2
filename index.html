@@ -484,6 +484,7 @@
     .horaires-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.25rem 1rem; font-size: 0.85rem; }
     .horaires-day { color: var(--ink-muted); }
     .horaires-time { font-weight: 500; }
+    .horaires-time small { display: block; font-weight: 400; color: var(--ink-muted); font-size: 0.78em; }
     
     .access-list { list-style: none; }
     .access-list li { font-size: 0.88rem; color: var(--ink); padding: 0.25rem 0; display: flex; align-items: center; gap: 0.5rem; }
@@ -514,8 +515,23 @@
       border: none; border-radius: 5px; padding: 0.9rem;
       font-size: 0.88rem; font-weight: 700; cursor: pointer;
       transition: background 0.2s; letter-spacing: 0.04em;
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
     }
     .form-submit:hover { background: var(--green-light); }
+    .form-submit:disabled { background: var(--ink-muted); cursor: not-allowed; }
+
+    .spinner {
+      width: 14px; height: 14px; border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.4); border-top-color: var(--white);
+      animation: spin 0.7s linear infinite; display: none;
+    }
+    .form-submit.loading .spinner { display: inline-block; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .form-error {
+      font-size: 0.8rem; color: var(--rose); margin-top: 0.8rem; display: none;
+    }
+    .form-error.show { display: block; }
 
     .map-container {
       width: 100%; margin-top: 2rem; border-radius: 8px; overflow: hidden;
@@ -551,8 +567,17 @@
       position: fixed; bottom: 2rem; right: 2rem; z-index: 999; background: var(--green); color: var(--white);
       padding: 0.8rem 1.5rem; border-radius: 5px; font-size: 0.88rem; font-weight: 500;
       transform: translateY(100px); opacity: 0; transition: all 0.3s; pointer-events: none;
+      display: flex; align-items: center; gap: 0.6rem;
     }
     .toast.show { transform: translateY(0); opacity: 1; }
+
+    .toast-inline {
+      display: none; align-items: center; gap: 0.6rem;
+      background: var(--green-pale); color: var(--green);
+      padding: 0.75rem 1rem; border-radius: 6px;
+      font-size: 0.85rem; font-weight: 600; margin-top: 1rem;
+    }
+    .toast-inline.show { display: flex; animation: fadeMenu 0.35s ease-out forwards; }
 
     @media (max-width: 960px) {
       .hero { grid-template-columns: 1fr; }
@@ -642,11 +667,11 @@
           <button class="btn-primary" onclick="window.location.hash='menu'">Nos créations</button>
           <button class="btn-secondary" onclick="window.location.hash='contact'">Nous trouver →</button>
         </div>
-        <img src="bouquet.jpg" alt="Bouquet de fleurs" class="hero-photo-mobile" loading="lazy" />
+        <img src="EF_4.png" alt="Roses rouges en vitrine Eve Fleurs" class="hero-photo-mobile" loading="lazy" />
       </div>
       <div class="hero-visual">
-        <div class="hero-photo" onclick="openLightbox('bouquet.jpg')">
-          <img src="bouquet.jpg" alt="Bouquet de fleurs" loading="lazy" />
+        <div class="hero-photo" onclick="openLightbox('EF_4.png')">
+          <img src="EF_4.png" alt="Roses rouges en vitrine Eve Fleurs" loading="lazy" />
         </div>
       </div>
     </section>
@@ -678,7 +703,7 @@
         <p style="margin-top:0.8rem;">Chaque jour, nous sélectionnons les plus belles fleurs pour vous offrir une qualité irréprochable, avec toujours le même mot d'ordre : vous conseiller sincèrement, jamais vous vendre plus que nécessaire.</p>
       </div>
       <div class="floral-wall">
-        <img src="boutique.jpg" alt="Intérieur boutique Eve Fleurs" style="width:100%; height:100%; object-fit:cover; display: block;">
+        <img src="EF_1.png" alt="Intérieur boutique Eve Fleurs" style="width:100%; height:100%; object-fit:cover; display: block;">
       </div>
       <div class="floral-map" style="margin-top: 2rem;">
         <iframe src="https://maps.google.com/maps?q=Eve+Fleurs,126+Av.+du+G%C3%A9n%C3%A9ral+de+Gaulle,94170+Le+Perreux-sur-Marne&output=embed" width="100%" height="200" style="border:0; border-radius:8px; border: 1px solid var(--green-pale);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -768,20 +793,20 @@
         <h2 class="section-title">Notre <em>Galerie</em></h2>
       </div>
       <div class="photo-grid">
-        <div class="photo-grid-item tall" onclick="openLightbox('bouquet.jpg')">
-          <img src="bouquet.jpg" alt="Bouquet" loading="lazy"/>
+        <div class="photo-grid-item tall" onclick="openLightbox('EF_4.png')">
+          <img src="EF_4.png" alt="Roses rouges en vitrine" loading="lazy"/>
         </div>
-        <div class="photo-grid-item" onclick="openLightbox('roses.jpg')">
-          <img src="roses.jpg" alt="Roses" loading="lazy"/>
+        <div class="photo-grid-item" onclick="openLightbox('EF_3.png')">
+          <img src="EF_3.png" alt="Gâteau décoré de roses pour cérémonie" loading="lazy"/>
         </div>
-        <div class="photo-grid-item" onclick="openLightbox('atelier.jpg')">
-          <img src="atelier.jpg" alt="Atelier floral" loading="lazy"/>
+        <div class="photo-grid-item" onclick="openLightbox('EF_2.png')">
+          <img src="EF_2.png" alt="Fleurs coupées et compositions en boutique" loading="lazy"/>
         </div>
-        <div class="photo-grid-item wide" onclick="openLightbox('boutique.jpg')">
-          <img src="boutique.jpg" alt="Boutique" loading="lazy"/>
+        <div class="photo-grid-item wide" onclick="openLightbox('EF_1.png')">
+          <img src="EF_1.png" alt="Boutique Eve Fleurs" loading="lazy"/>
         </div>
-        <div class="photo-grid-item" onclick="openLightbox('plantes.jpg')">
-          <img src="plantes.jpg" alt="Plantes vertes" loading="lazy"/>
+        <div class="photo-grid-item" onclick="openLightbox('https://images.unsplash.com/photo-1493552152660-f915ab47ae9d?auto=format&fit=crop&w=900&q=80')">
+          <img src="https://images.unsplash.com/photo-1493552152660-f915ab47ae9d?auto=format&fit=crop&w=900&q=80" alt="Plante verte d'intérieur" loading="lazy"/>
         </div>
       </div>
     </div>
@@ -800,7 +825,7 @@
           <p>Depuis, des générations de clients franchissent la porte d'Eve Fleurs et y retrouvent toujours le même accueil chaleureux : un fleuriste qui prend le temps d'écouter, qui conseille sincèrement et qui ne cherche jamais à vendre plus que nécessaire. Notre magasin, climatisé et entièrement refait à neuf, propose fleurs coupées, compositions et plantes d'intérieur pour tous les moments de votre vie.</p>
         </div>
         <div class="histoire-photo">
-          <img src="atelier.jpg" alt="Création bouquet" loading="lazy"/>
+          <img src="EF_2.png" alt="Fleurs coupées et compositions Eve Fleurs" loading="lazy"/>
         </div>
       </div>
       <div class="histoire-values">
@@ -1010,12 +1035,12 @@
           <div class="contact-block-label">Horaires</div>
           <div class="horaires-grid">
             <span class="horaires-day">Lundi</span><span class="horaires-time">Fermé</span>
-            <span class="horaires-day">Mardi</span><span class="horaires-time">9h00 – 20h00</span>
-            <span class="horaires-day">Mercredi</span><span class="horaires-time">9h00 – 20h00</span>
-            <span class="horaires-day">Jeudi</span><span class="horaires-time">9h00 – 20h00</span>
-            <span class="horaires-day">Vendredi</span><span class="horaires-time">9h00 – 20h00</span>
-            <span class="horaires-day">Samedi</span><span class="horaires-time">9h00 – 20h00</span>
-            <span class="horaires-day">Dimanche</span><span class="horaires-time">8h30 – 14h00</span>
+            <span class="horaires-day">Mardi</span><span class="horaires-time">09h00–13h00<small>15h00–19h30</small></span>
+            <span class="horaires-day">Mercredi</span><span class="horaires-time">09h00–13h00<small>15h00–19h30</small></span>
+            <span class="horaires-day">Jeudi</span><span class="horaires-time">09h00–13h00<small>15h00–19h30</small></span>
+            <span class="horaires-day">Vendredi</span><span class="horaires-time">09h00–13h00<small>15h00–19h30</small></span>
+            <span class="horaires-day">Samedi</span><span class="horaires-time">09h00–13h00<small>15h00–19h30</small></span>
+            <span class="horaires-day">Dimanche</span><span class="horaires-time">09h00–13h30</span>
           </div>
         </div>
         <div class="map-container">
@@ -1025,8 +1050,10 @@
       <div class="contact-form">
         <h2>Nous écrire</h2>
         <p>Pour une commande spéciale, un mariage ou une cérémonie.</p>
-        <form action="https://api.web3forms.com/submit" method="POST" onsubmit="showToast('✉️ Message envoyé ! Nous vous répondrons rapidement.'); setTimeout(function(){ event.target.reset(); }, 500);">
+        <form id="contactForm">
           <input type="hidden" name="access_key" value="d30faa67-b86f-4cb9-890b-c2167e1726ae">
+          <input type="hidden" name="subject" value="Nouveau message — Eve Fleurs">
+          <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off">
           <div class="form-group">
             <label>Votre nom</label>
             <input type="text" name="Nom_Complet" required placeholder="Marie Dupont" />
@@ -1034,6 +1061,10 @@
           <div class="form-group">
             <label>Votre e-mail</label>
             <input type="email" name="email" required placeholder="marie@email.com" />
+          </div>
+          <div class="form-group">
+            <label>Votre numéro de téléphone</label>
+            <input type="tel" name="Telephone" required placeholder="06 12 34 56 78" />
           </div>
           <div class="form-group">
             <label>Sujet</label>
@@ -1049,7 +1080,12 @@
             <label>Message</label>
             <textarea name="message" required placeholder="Bonjour, je souhaitais..."></textarea>
           </div>
-          <button type="submit" class="form-submit">Envoyer le message</button>
+          <button type="submit" class="form-submit" id="formSubmitBtn">
+            <span class="spinner"></span>
+            <span id="formSubmitLabel">Envoyer le message</span>
+          </button>
+          <p class="form-error" id="formError">Une erreur est survenue. Merci de réessayer ou de nous appeler au 01 43 24 21 64.</p>
+          <div class="toast-inline" id="toastInline">✓ Message bien envoyé ! Nous vous répondrons rapidement.</div>
         </form>
       </div>
     </div>
@@ -1074,7 +1110,7 @@
       <h4>Infos pratiques</h4>
       <p>126 Av. du Général de Gaulle<br>94170 Le Perreux-sur-Marne</p>
       <p style="margin-top:0.4rem;">01 43 24 21 64</p>
-      <p style="margin-top:0.4rem;">Mar–Sam : 9h–20h<br>Dim : 8h30–14h · Lun : Fermé</p>
+      <p style="margin-top:0.4rem;">Mar–Sam : 9h–13h / 15h–19h30<br>Dim : 9h–13h30 · Lun : Fermé</p>
     </div>
   </footer>
   <div class="footer-bottom">
@@ -1164,6 +1200,56 @@
         t.classList.remove('show');
       }, 2800);
     }
+
+    // Envoi du formulaire de contact en arrière-plan (AJAX),
+    // sans jamais quitter le site d'Eve Fleurs.
+    var contactForm = document.getElementById('contactForm');
+    var submitBtn = document.getElementById('formSubmitBtn');
+    var submitLabel = document.getElementById('formSubmitLabel');
+    var formError = document.getElementById('formError');
+    var toastInline = document.getElementById('toastInline');
+
+    contactForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      formError.classList.remove('show');
+      toastInline.classList.remove('show');
+      submitBtn.disabled = true;
+      submitBtn.classList.add('loading');
+      submitLabel.textContent = 'Envoi en cours...';
+
+      var formData = new FormData(contactForm);
+      var payload = Object.fromEntries(formData.entries());
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify(payload)
+      })
+        .then(function (response) { return response.json(); })
+        .then(function (data) {
+          submitBtn.disabled = false;
+          submitBtn.classList.remove('loading');
+          submitLabel.textContent = 'Envoyer le message';
+
+          if (data && data.success) {
+            contactForm.reset();
+            toastInline.classList.add('show');
+            showToast('✉️ Message bien envoyé !');
+          } else {
+            formError.classList.add('show');
+          }
+        })
+        .catch(function () {
+          submitBtn.disabled = false;
+          submitBtn.classList.remove('loading');
+          submitLabel.textContent = 'Envoyer le message';
+          formError.classList.add('show');
+        });
+    });
   </script>
 </body>
 </html>
