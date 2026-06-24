@@ -394,7 +394,7 @@
       background: var(--white-tile);
       padding: 4rem 5rem;
       display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
-      align-items: stretch; /* Modifié pour que les colonnes s'étirent */
+      align-items: stretch;
       border-top: 1px solid var(--green-pale);
       border-bottom: 1px solid var(--green-pale);
     }
@@ -597,10 +597,17 @@
 
     .order-card {
       background: var(--white); border: 1px solid var(--warm-border);
-      border-radius: 10px; padding: 1.3rem 1.4rem;
-      display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+      border-radius: 10px; padding: 1.1rem 1.3rem;
+      display: flex; align-items: center; gap: 1.2rem; 
     }
 
+    .order-card-img {
+      width: 80px; height: 80px; border-radius: 8px; overflow: hidden; flex-shrink: 0;
+    }
+    .order-card-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .order-card-content { display: flex; flex: 1; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    
     .order-card-info { flex: 1; min-width: 180px; }
     .order-card-name { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 1rem; color: var(--ink); }
     .order-card-desc { font-size: 0.8rem; color: var(--ink-muted); margin-top: 0.2rem; line-height: 1.5; }
@@ -695,7 +702,15 @@
     .blog-modal-body strong { color: var(--ink); }
 
     #page-legal { background: var(--cream); }
-    .legales-wrap h1 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 0.5rem; }
+    .legales-wrap { max-width: 860px; margin: 0 auto; padding: 5rem 2rem; }
+    .legales-container {
+      background: var(--white);
+      border: 1px solid var(--green-pale);
+      border-radius: 12px;
+      padding: 3.5rem 4rem;
+      box-shadow: 0 10px 30px rgba(44,76,59,0.05);
+    }
+    .legales-container h1 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 0.5rem; }
     .legales-tabs { display: flex; gap: 0.5rem; margin: 2rem 0 3rem; flex-wrap: wrap; }
     .legales-tab {
       padding: 0.5rem 1.2rem; border-radius: 30px; cursor: pointer;
@@ -710,10 +725,6 @@
     .legal-todo {
       background: var(--warm-pale); color: var(--rose); border-radius: 3px;
       padding: 0.05rem 0.4rem; font-weight: 600; font-style: normal;
-    }
-    .legal-callout {
-      background: var(--warm-cream); border: 1px solid var(--green-pale); border-radius: 8px;
-      padding: 1rem 1.2rem; margin-bottom: 2rem; font-size: 0.85rem; color: var(--ink); line-height: 1.7;
     }
     
     footer {
@@ -774,6 +785,7 @@
       .nav-cta-btn { display: none; }
       .nav-burger { display: flex; }
       .photo-grid { grid-template-columns: 1fr 1fr; }
+      .legales-container { padding: 2.5rem 2rem; }
     }
     
     @media (max-width: 580px) {
@@ -782,7 +794,10 @@
       .arrivage-grid { grid-template-columns: 1fr; }
       .arrivage-head { flex-direction: column; align-items: flex-start; }
       .pickup-row { grid-template-columns: 1fr; }
-      .order-card { flex-direction: column; align-items: stretch; }
+      .order-card { flex-direction: column; align-items: stretch; text-align: center; }
+      .order-card-img { width: 100%; height: 140px; margin-bottom: 0.5rem; }
+      .order-card-content { flex-direction: column; }
+      .order-qty { justify-content: center; }
     }
   </style>
 </head>
@@ -841,11 +856,11 @@
           <button class="btn-primary" onclick="window.location.hash='menu'">Nos créations</button>
           <button class="btn-secondary" onclick="window.location.hash='contact'">Nous trouver →</button>
         </div>
-        <img src="EF_4.png" alt="Roses rouges en vitrine Eve Fleurs" class="hero-photo-mobile" loading="lazy" />
+        <img src="EF_4.jpg" alt="Roses rouges en vitrine Eve Fleurs" class="hero-photo-mobile" loading="lazy" />
       </div>
       <div class="hero-visual">
-        <div class="hero-photo" onclick="openLightbox('EF_4.png')">
-          <img src="EF_4.png" alt="Roses rouges en vitrine Eve Fleurs" loading="lazy" />
+        <div class="hero-photo" onclick="openLightbox('EF_4.jpg')">
+          <img src="EF_4.jpg" alt="Roses rouges en vitrine Eve Fleurs" loading="lazy" />
         </div>
       </div>
     </section>
@@ -870,11 +885,6 @@
       </div>
     </section>
 
-    <!--
-      ARRIVAGE DE LA SEMAINE — à mettre à jour à la main chaque semaine.
-      Pour changer une fleur : modifiez le texte (nom, description) et l'image (src) de chaque .arrivage-card ci-dessous,
-      et la date dans .arrivage-updated strong. Pas besoin de toucher au reste du site.
-    -->
     <section class="arrivage">
       <div class="arrivage-head">
         <div class="arrivage-head-text">
@@ -924,7 +934,7 @@
         <p style="margin-top:0.8rem;">Chaque jour, nous sélectionnons les plus belles fleurs pour vous offrir une qualité irréprochable, avec toujours le même mot d'ordre : vous conseiller sincèrement, jamais vous vendre plus que nécessaire.</p>
       </div>
       <div class="floral-wall">
-        <img src="EF_1.png" alt="Intérieur boutique Eve Fleurs" style="width:100%; height:100%; object-fit:cover; display: block;">
+        <img src="EF_1.jpg" alt="Intérieur boutique Eve Fleurs" style="width:100%; height:100%; object-fit:cover; display: block;">
       </div>
       <div class="floral-map">
         <iframe src="https://maps.google.com/maps?q=Eve+Fleurs,126+Av.+du+G%C3%A9n%C3%A9ral+de+Gaulle,94170+Le+Perreux-sur-Marne&output=embed" width="100%" height="100%" style="border:0; border-radius:8px; border: 1px solid var(--green-pale); min-height: 300px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -1018,66 +1028,87 @@
       <form id="orderForm">
         <div class="commander-layout">
           <div class="commander-products" id="orderProducts">
+            
             <div class="order-card" data-name="Bouquet de Roses" data-price="30">
-              <div class="order-card-info">
-                <div class="order-card-name">Bouquet de Roses</div>
-                <div class="order-card-desc">Notre spécialité maison, roses sélectionnées avec exigence.</div>
-                <div class="order-card-price">Dès 30 €</div>
-              </div>
-              <div class="order-qty">
-                <button type="button" class="qty-btn" onclick="changeQty(this,-1)">−</button>
-                <span class="qty-value">0</span>
-                <button type="button" class="qty-btn" onclick="changeQty(this,1)">+</button>
+              <div class="order-card-img"><img src="EF_1.jpg" alt="Roses rouges"></div>
+              <div class="order-card-content">
+                <div class="order-card-info">
+                  <div class="order-card-name">Bouquet de Roses</div>
+                  <div class="order-card-desc">Notre spécialité maison, roses sélectionnées avec exigence.</div>
+                  <div class="order-card-price">Dès 30 €</div>
+                </div>
+                <div class="order-qty">
+                  <button type="button" class="qty-btn" onclick="changeQty(this,-1)">−</button>
+                  <span class="qty-value">0</span>
+                  <button type="button" class="qty-btn" onclick="changeQty(this,1)">+</button>
+                </div>
               </div>
             </div>
+
             <div class="order-card" data-name="Roses & Lys" data-price="20">
-              <div class="order-card-info">
-                <div class="order-card-name">Roses & Lys</div>
-                <div class="order-card-desc">Une composition élégante mêlant roses et lys.</div>
-                <div class="order-card-price">Dès 20 €</div>
-              </div>
-              <div class="order-qty">
-                <button type="button" class="qty-btn" onclick="changeQty(this,-1)">−</button>
-                <span class="qty-value">0</span>
-                <button type="button" class="qty-btn" onclick="changeQty(this,1)">+</button>
+              <div class="order-card-img"><img src="EF_3.jpg" alt="Fleurs et Lys"></div>
+              <div class="order-card-content">
+                <div class="order-card-info">
+                  <div class="order-card-name">Roses & Lys</div>
+                  <div class="order-card-desc">Une composition élégante mêlant roses et lys.</div>
+                  <div class="order-card-price">Dès 20 €</div>
+                </div>
+                <div class="order-qty">
+                  <button type="button" class="qty-btn" onclick="changeQty(this,-1)">−</button>
+                  <span class="qty-value">0</span>
+                  <button type="button" class="qty-btn" onclick="changeQty(this,1)">+</button>
+                </div>
               </div>
             </div>
+
             <div class="order-card" data-name="Bouquet de Saison" data-price="20">
-              <div class="order-card-info">
-                <div class="order-card-name">Bouquet de Saison</div>
-                <div class="order-card-desc">Composition assemblée avec les plus belles fleurs du moment.</div>
-                <div class="order-card-price">Dès 20 €</div>
-              </div>
-              <div class="order-qty">
-                <button type="button" class="qty-btn" onclick="changeQty(this,-1)">−</button>
-                <span class="qty-value">0</span>
-                <button type="button" class="qty-btn" onclick="changeQty(this,1)">+</button>
+              <div class="order-card-img"><img src="https://images.unsplash.com/photo-1487070183336-b863922373d4?auto=format&fit=crop&w=300&q=80" alt="Bouquet de saison"></div>
+              <div class="order-card-content">
+                <div class="order-card-info">
+                  <div class="order-card-name">Bouquet de Saison</div>
+                  <div class="order-card-desc">Composition assemblée avec les plus belles fleurs du moment.</div>
+                  <div class="order-card-price">Dès 20 €</div>
+                </div>
+                <div class="order-qty">
+                  <button type="button" class="qty-btn" onclick="changeQty(this,-1)">−</button>
+                  <span class="qty-value">0</span>
+                  <button type="button" class="qty-btn" onclick="changeQty(this,1)">+</button>
+                </div>
               </div>
             </div>
+
             <div class="order-card" data-name="Plante d'Intérieur" data-price="18">
-              <div class="order-card-info">
-                <div class="order-card-name">Plante d'Intérieur</div>
-                <div class="order-card-desc">Une sélection de plantes vertes et fleuries.</div>
-                <div class="order-card-price">Dès 18 €</div>
-              </div>
-              <div class="order-qty">
-                <button type="button" class="qty-btn" onclick="changeQty(this,-1)">−</button>
-                <span class="qty-value">0</span>
-                <button type="button" class="qty-btn" onclick="changeQty(this,1)">+</button>
+              <div class="order-card-img"><img src="https://images.unsplash.com/photo-1493552152660-f915ab47ae9d?auto=format&fit=crop&w=300&q=80" alt="Plante d'intérieur"></div>
+              <div class="order-card-content">
+                <div class="order-card-info">
+                  <div class="order-card-name">Plante d'Intérieur</div>
+                  <div class="order-card-desc">Une sélection de plantes vertes et fleuries.</div>
+                  <div class="order-card-price">Dès 18 €</div>
+                </div>
+                <div class="order-qty">
+                  <button type="button" class="qty-btn" onclick="changeQty(this,-1)">−</button>
+                  <span class="qty-value">0</span>
+                  <button type="button" class="qty-btn" onclick="changeQty(this,1)">+</button>
+                </div>
               </div>
             </div>
+
             <div class="order-card" data-name="Composition sur-mesure (mariage, devis...)" data-price="0">
-              <div class="order-card-info">
-                <div class="order-card-name">Composition sur-mesure</div>
-                <div class="order-card-desc">Mariage, cérémonie, deuil — précisez votre besoin dans les notes ci-contre.</div>
-                <div class="order-card-price">Sur devis</div>
-              </div>
-              <div class="order-qty">
-                <button type="button" class="qty-btn" onclick="changeQty(this,-1)">−</button>
-                <span class="qty-value">0</span>
-                <button type="button" class="qty-btn" onclick="changeQty(this,1)">+</button>
+              <div class="order-card-img"><img src="EF_2.jpg" alt="Composition florale"></div>
+              <div class="order-card-content">
+                <div class="order-card-info">
+                  <div class="order-card-name">Composition sur-mesure</div>
+                  <div class="order-card-desc">Mariage, cérémonie, deuil — précisez votre besoin dans les notes ci-contre.</div>
+                  <div class="order-card-price">Sur devis</div>
+                </div>
+                <div class="order-qty">
+                  <button type="button" class="qty-btn" onclick="changeQty(this,-1)">−</button>
+                  <span class="qty-value">0</span>
+                  <button type="button" class="qty-btn" onclick="changeQty(this,1)">+</button>
+                </div>
               </div>
             </div>
+
           </div>
 
           <div class="commander-summary">
@@ -1108,10 +1139,15 @@
                 <label>Heure souhaitée</label>
                 <select id="orderTime" required>
                   <option value="">Choisir...</option>
-                  <option>09h00</option><option>09h30</option><option>10h00</option><option>10h30</option>
-                  <option>11h00</option><option>11h30</option><option>12h00</option><option>12h30</option>
-                  <option>15h00</option><option>15h30</option><option>16h00</option><option>16h30</option>
-                  <option>17h00</option><option>17h30</option><option>18h00</option><option>18h30</option><option>19h00</option>
+                  <option>09h00</option><option>09h15</option><option>09h30</option><option>09h45</option>
+                  <option>10h00</option><option>10h15</option><option>10h30</option><option>10h45</option>
+                  <option>11h00</option><option>11h15</option><option>11h30</option><option>11h45</option>
+                  <option>12h00</option><option>12h15</option><option>12h30</option><option>12h45</option><option>13h00</option>
+                  <option>15h00</option><option>15h15</option><option>15h30</option><option>15h45</option>
+                  <option>16h00</option><option>16h15</option><option>16h30</option><option>16h45</option>
+                  <option>17h00</option><option>17h15</option><option>17h30</option><option>17h45</option>
+                  <option>18h00</option><option>18h15</option><option>18h30</option><option>18h45</option>
+                  <option>19h00</option><option>19h15</option><option>19h30</option>
                 </select>
               </div>
             </div>
@@ -1141,17 +1177,17 @@
         <h2 class="section-title">Notre <em>Galerie</em></h2>
       </div>
       <div class="photo-grid">
-        <div class="photo-grid-item" onclick="openLightbox('EF_4.png')">
-          <img src="EF_4.png" alt="Roses rouges en vitrine" loading="lazy"/>
+        <div class="photo-grid-item" onclick="openLightbox('EF_4.jpg')">
+          <img src="EF_4.jpg" alt="Vitrine boutique" loading="lazy"/>
         </div>
-        <div class="photo-grid-item" onclick="openLightbox('EF_3.png')">
-          <img src="EF_3.png" alt="Gâteau décoré de roses pour cérémonie" loading="lazy"/>
+        <div class="photo-grid-item" onclick="openLightbox('EF_3.jpg')">
+          <img src="EF_3.jpg" alt="Fleurs et Lys" loading="lazy"/>
         </div>
-        <div class="photo-grid-item" onclick="openLightbox('EF_2.png')">
-          <img src="EF_2.png" alt="Fleurs coupées et compositions en boutique" loading="lazy"/>
+        <div class="photo-grid-item" onclick="openLightbox('EF_2.jpg')">
+          <img src="EF_2.jpg" alt="Composition avec roses" loading="lazy"/>
         </div>
-        <div class="photo-grid-item" onclick="openLightbox('EF_1.png')">
-          <img src="EF_1.png" alt="Boutique Eve Fleurs" loading="lazy"/>
+        <div class="photo-grid-item" onclick="openLightbox('EF_1.jpg')">
+          <img src="EF_1.jpg" alt="Roses artificielles ou composition" loading="lazy"/>
         </div>
         <div class="photo-grid-item" onclick="openLightbox('https://images.unsplash.com/photo-1493552152660-f915ab47ae9d?auto=format&fit=crop&w=900&q=80')">
           <img src="https://images.unsplash.com/photo-1493552152660-f915ab47ae9d?auto=format&fit=crop&w=900&q=80" alt="Plante verte d'intérieur" loading="lazy"/>
@@ -1173,7 +1209,7 @@
           <p>Depuis, des générations de clients franchissent la porte d'Eve Fleurs et y retrouvent toujours le même accueil chaleureux : un fleuriste qui prend le temps d'écouter, qui conseille sincèrement et qui ne cherche jamais à vendre plus que nécessaire. Notre magasin, climatisé et entièrement refait à neuf, propose fleurs coupées, compositions et plantes d'intérieur pour tous les moments de votre vie.</p>
         </div>
         <div class="histoire-photo">
-          <img src="EF_2.png" alt="Fleurs coupées et compositions Eve Fleurs" loading="lazy"/>
+          <img src="EF_4.jpg" alt="Intérieur boutique Eve Fleurs" loading="lazy"/>
         </div>
       </div>
       <div class="histoire-values">
@@ -1498,66 +1534,66 @@
 
   <div class="page" id="page-legal">
     <div class="legales-wrap">
-      <h1>Mentions légales & confidentialité</h1>
-      <p style="font-size:0.88rem; color:var(--ink-muted); line-height:1.7;">Informations légales relatives au site et à l'utilisation de vos données personnelles.</p>
+      <div class="legales-container">
+        <h1>Mentions légales & confidentialité</h1>
+        <p style="font-size:0.88rem; color:var(--ink-muted); line-height:1.7;">Informations légales relatives au site et à l'utilisation de vos données personnelles.</p>
 
-      <div class="legales-tabs">
-        <button class="legales-tab active" onclick="showLegalTab('mentions', event)">Mentions légales</button>
-        <button class="legales-tab" onclick="showLegalTab('confidentialite', event)">Confidentialité (RGPD)</button>
-      </div>
+        <div class="legales-tabs">
+          <button class="legales-tab active" onclick="showLegalTab('mentions', event)">Mentions légales</button>
+          <button class="legales-tab" onclick="showLegalTab('confidentialite', event)">Confidentialité (RGPD)</button>
+        </div>
 
-      <div class="legales-section active" id="legal-mentions">
-        <div class="legal-callout">⚠️ Champs à compléter par le commerçant avant la mise en ligne : raison sociale, statut juridique, SIRET, et nom du directeur de la publication (marqués <span class="legal-todo">à compléter</span>).</div>
+        <div class="legales-section active" id="legal-mentions">
+          <h2>Éditeur du site</h2>
+          <p>Le présent site est édité par : <span class="legal-todo">[Raison sociale — ex. SARL Eve Fleurs / Nom Prénom EI] — à compléter</span>.</p>
+          <ul>
+            <li>Forme juridique : <span class="legal-todo">à compléter</span> (ex. entreprise individuelle, SARL, EURL...)</li>
+            <li>Adresse du siège : 126 Av. du Général de Gaulle, 94170 Le Perreux-sur-Marne</li>
+            <li>Numéro SIRET / RCS : <span class="legal-todo">à compléter</span></li>
+            <li>Téléphone : <a href="tel:+33143242164">01 43 24 21 64</a></li>
+            <li>E-mail : <span class="legal-todo">à compléter</span></li>
+            <li>Directeur de la publication : <span class="legal-todo">à compléter (généralement le gérant de la boutique)</span></li>
+          </ul>
 
-        <h2>Éditeur du site</h2>
-        <p>Le présent site est édité par : <span class="legal-todo">[Raison sociale — ex. SARL Eve Fleurs / Nom Prénom EI] — à compléter</span>.</p>
-        <ul>
-          <li>Forme juridique : <span class="legal-todo">à compléter</span> (ex. entreprise individuelle, SARL, EURL...)</li>
-          <li>Adresse du siège : 126 Av. du Général de Gaulle, 94170 Le Perreux-sur-Marne</li>
-          <li>Numéro SIRET / RCS : <span class="legal-todo">à compléter</span></li>
-          <li>Téléphone : <a href="tel:+33143242164">01 43 24 21 64</a></li>
-          <li>E-mail : <span class="legal-todo">à compléter</span></li>
-          <li>Directeur de la publication : <span class="legal-todo">à compléter (généralement le gérant de la boutique)</span></li>
-        </ul>
+          <h2>Hébergement</h2>
+          <p>Le site est hébergé par :</p>
+          <ul>
+            <li>GitHub, Inc.</li>
+            <li>88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis</li>
+            <li>Site : <a href="https://github.com" target="_blank">github.com</a></li>
+          </ul>
 
-        <h2>Hébergement</h2>
-        <p>Le site est hébergé par :</p>
-        <ul>
-          <li>GitHub, Inc.</li>
-          <li>88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis</li>
-          <li>Site : <a href="https://github.com" target="_blank">github.com</a></li>
-        </ul>
+          <h2>Propriété intellectuelle</h2>
+          <p>L'ensemble des textes, photographies et éléments graphiques présents sur ce site est la propriété d'Eve Fleurs, sauf mention contraire, et ne peut être reproduit sans autorisation préalable.</p>
 
-        <h2>Propriété intellectuelle</h2>
-        <p>L'ensemble des textes, photographies et éléments graphiques présents sur ce site est la propriété d'Eve Fleurs, sauf mention contraire, et ne peut être reproduit sans autorisation préalable.</p>
+          <h2>Limitation de responsabilité</h2>
+          <p>Les informations (produits, tarifs, horaires) sont fournies à titre indicatif et peuvent évoluer. Eve Fleurs ne pourra être tenu responsable des éventuelles erreurs ou omissions, ni de l'indisponibilité ponctuelle du site.</p>
+        </div>
 
-        <h2>Limitation de responsabilité</h2>
-        <p>Les informations (produits, tarifs, horaires) sont fournies à titre indicatif et peuvent évoluer. Eve Fleurs ne pourra être tenu responsable des éventuelles erreurs ou omissions, ni de l'indisponibilité ponctuelle du site.</p>
-      </div>
+        <div class="legales-section" id="legal-confidentialite">
+          <h2>Données collectées</h2>
+          <p>Le formulaire de contact et le formulaire de commande de ce site collectent les données suivantes : nom, adresse e-mail, numéro de téléphone, et le contenu de votre message ou de votre demande de commande (produits, date et heure de retrait souhaitées).</p>
 
-      <div class="legales-section" id="legal-confidentialite">
-        <h2>Données collectées</h2>
-        <p>Le formulaire de contact et le formulaire de commande de ce site collectent les données suivantes : nom, adresse e-mail, numéro de téléphone, et le contenu de votre message ou de votre demande de commande (produits, date et heure de retrait souhaitées).</p>
+          <h2>Finalité du traitement</h2>
+          <p>Ces données sont utilisées exclusivement pour répondre à votre demande, préparer et confirmer votre commande, et vous recontacter si nécessaire. Elles ne sont ni revendues, ni utilisées à des fins de prospection commerciale sans votre accord.</p>
 
-        <h2>Finalité du traitement</h2>
-        <p>Ces données sont utilisées exclusivement pour répondre à votre demande, préparer et confirmer votre commande, et vous recontacter si nécessaire. Elles ne sont ni revendues, ni utilisées à des fins de prospection commerciale sans votre accord.</p>
+          <h2>Destinataires des données</h2>
+          <p>Vos données sont reçues par Eve Fleurs. L'envoi des formulaires s'appuie sur le prestataire technique Web3Forms, qui agit uniquement comme intermédiaire technique pour transmettre le message par e-mail et n'utilise pas ces données pour son propre compte.</p>
 
-        <h2>Destinataires des données</h2>
-        <p>Vos données sont reçues par Eve Fleurs. L'envoi des formulaires s'appuie sur le prestataire technique Web3Forms, qui agit uniquement comme intermédiaire technique pour transmettre le message par e-mail et n'utilise pas ces données pour son propre compte.</p>
+          <h2>Durée de conservation</h2>
+          <p>Les données transmises via les formulaires sont conservées le temps nécessaire au traitement de votre demande ou de votre commande, puis supprimées dans un délai raisonnable, sauf obligation légale de conservation plus longue (notamment comptable).</p>
 
-        <h2>Durée de conservation</h2>
-        <p>Les données transmises via les formulaires sont conservées le temps nécessaire au traitement de votre demande ou de votre commande, puis supprimées dans un délai raisonnable, sauf obligation légale de conservation plus longue (notamment comptable).</p>
+          <h2>Cookies et services tiers</h2>
+          <p>Ce site n'utilise pas de cookies de suivi publicitaire. Une carte Google Maps est intégrée sur certaines pages : Google peut, à cette occasion, déposer ses propres cookies techniques liés à l'affichage de la carte, indépendamment de notre volonté.</p>
 
-        <h2>Cookies et services tiers</h2>
-        <p>Ce site n'utilise pas de cookies de suivi publicitaire. Une carte Google Maps est intégrée sur certaines pages : Google peut, à cette occasion, déposer ses propres cookies techniques liés à l'affichage de la carte, indépendamment de notre volonté.</p>
-
-        <h2>Vos droits</h2>
-        <p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification, d'effacement et d'opposition concernant vos données personnelles. Pour exercer ces droits, vous pouvez nous contacter :</p>
-        <ul>
-          <li>Par téléphone : <a href="tel:+33143242164">01 43 24 21 64</a></li>
-          <li>Par e-mail : <span class="legal-todo">à compléter</span></li>
-        </ul>
-        <p>Vous disposez également du droit d'introduire une réclamation auprès de la CNIL (Commission Nationale de l'Informatique et des Libertés) si vous estimez que vos droits ne sont pas respectés.</p>
+          <h2>Vos droits</h2>
+          <p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification, d'effacement et d'opposition concernant vos données personnelles. Pour exercer ces droits, vous pouvez nous contacter :</p>
+          <ul>
+            <li>Par téléphone : <a href="tel:+33143242164">01 43 24 21 64</a></li>
+            <li>Par e-mail : <span class="legal-todo">à compléter</span></li>
+          </ul>
+          <p>Vous disposez également du droit d'introduire une réclamation auprès de la CNIL (Commission Nationale de l'Informatique et des Libertés) si vous estimez que vos droits ne sont pas respectés.</p>
+        </div>
       </div>
     </div>
   </div>
