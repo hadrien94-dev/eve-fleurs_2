@@ -323,9 +323,6 @@
     }
     
     .photo-grid-item:hover img { transform: scale(1.05); }
-    
-    .photo-grid-item.tall { grid-row: span 2; }
-    .photo-grid-item.wide { grid-column: span 2; }
 
     .lightbox {
       position: fixed; inset: 0; background: rgba(26,29,26,0.92);
@@ -347,12 +344,12 @@
       background: var(--white-tile);
       padding: 4rem 5rem;
       display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
-      align-items: center;
+      align-items: stretch; /* Modifié pour que les colonnes s'étirent */
       border-top: 1px solid var(--green-pale);
       border-bottom: 1px solid var(--green-pale);
     }
     
-    .floral-showcase-text { order: 1; }
+    .floral-showcase-text { order: 1; display: flex; flex-direction: column; justify-content: center; }
     
     .floral-showcase-text h3 {
       font-family: 'Playfair Display', serif;
@@ -370,7 +367,7 @@
     }
     
     .floral-map {
-      order: 3; grid-column: 1; grid-row: 2; width: 100%;
+      order: 3; grid-column: 1; grid-row: 2; width: 100%; height: 100%; min-height: 300px;
     }
 
     .histoire-wrap { max-width: 900px; margin: 0 auto; padding: 5rem 2rem; }
@@ -484,7 +481,6 @@
     .horaires-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.25rem 1rem; font-size: 0.85rem; }
     .horaires-day { color: var(--ink-muted); }
     .horaires-time { font-weight: 500; }
-    .horaires-time small { display: block; font-weight: 400; color: var(--ink-muted); font-size: 0.78em; }
     
     .access-list { list-style: none; }
     .access-list li { font-size: 0.88rem; color: var(--ink); padding: 0.25rem 0; display: flex; align-items: center; gap: 0.5rem; }
@@ -591,7 +587,7 @@
       .floral-showcase { grid-template-columns: 1fr; padding: 3rem 1.5rem; gap: 2rem; }
       .floral-showcase-text { order: 1; }
       .floral-wall { order: 2; width: 100%; }
-      .floral-map { order: 3; width: 100%; margin-top: 0; }
+      .floral-map { order: 3; width: 100%; margin-top: 0; min-height: 250px; }
       footer { grid-template-columns: 1fr 1fr; padding: 2.5rem 1.5rem; gap: 2rem; }
       .footer-bottom { padding: 1rem 1.5rem; flex-direction: column; gap: 0.3rem; text-align: center; }
       nav { padding: 0 1.5rem; }
@@ -609,7 +605,6 @@
     
     @media (max-width: 580px) {
       .photo-grid { grid-template-columns: 1fr; grid-auto-rows: 220px; }
-      .photo-grid-item.tall, .photo-grid-item.wide { grid-row: span 1; grid-column: span 1; }
       .histoire-values { grid-template-columns: 1fr; }
     }
   </style>
@@ -704,8 +699,8 @@
       <div class="floral-wall">
         <img src="EF_1.png" alt="Intérieur boutique Eve Fleurs" style="width:100%; height:100%; object-fit:cover; display: block;">
       </div>
-      <div class="floral-map" style="margin-top: 2rem;">
-        <iframe src="https://maps.google.com/maps?q=Eve+Fleurs,126+Av.+du+G%C3%A9n%C3%A9ral+de+Gaulle,94170+Le+Perreux-sur-Marne&output=embed" width="100%" height="200" style="border:0; border-radius:8px; border: 1px solid var(--green-pale);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="floral-map">
+        <iframe src="https://maps.google.com/maps?q=Eve+Fleurs,126+Av.+du+G%C3%A9n%C3%A9ral+de+Gaulle,94170+Le+Perreux-sur-Marne&output=embed" width="100%" height="100%" style="border:0; border-radius:8px; border: 1px solid var(--green-pale); min-height: 300px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </section>
   </div>
@@ -792,7 +787,7 @@
         <h2 class="section-title">Notre <em>Galerie</em></h2>
       </div>
       <div class="photo-grid">
-        <div class="photo-grid-item tall" onclick="openLightbox('EF_4.png')">
+        <div class="photo-grid-item" onclick="openLightbox('EF_4.png')">
           <img src="EF_4.png" alt="Roses rouges en vitrine" loading="lazy"/>
         </div>
         <div class="photo-grid-item" onclick="openLightbox('EF_3.png')">
@@ -801,7 +796,7 @@
         <div class="photo-grid-item" onclick="openLightbox('EF_2.png')">
           <img src="EF_2.png" alt="Fleurs coupées et compositions en boutique" loading="lazy"/>
         </div>
-        <div class="photo-grid-item wide" onclick="openLightbox('EF_1.png')">
+        <div class="photo-grid-item" onclick="openLightbox('EF_1.png')">
           <img src="EF_1.png" alt="Boutique Eve Fleurs" loading="lazy"/>
         </div>
         <div class="photo-grid-item" onclick="openLightbox('https://images.unsplash.com/photo-1493552152660-f915ab47ae9d?auto=format&fit=crop&w=900&q=80')">
@@ -1034,11 +1029,11 @@
           <div class="contact-block-label">Horaires</div>
           <div class="horaires-grid">
             <span class="horaires-day">Lundi</span><span class="horaires-time">Fermé</span>
-            <span class="horaires-day">Mardi</span><span class="horaires-time">09h00–13h00<small>15h00–19h30</small></span>
-            <span class="horaires-day">Mercredi</span><span class="horaires-time">09h00–13h00<small>15h00–19h30</small></span>
-            <span class="horaires-day">Jeudi</span><span class="horaires-time">09h00–13h00<small>15h00–19h30</small></span>
-            <span class="horaires-day">Vendredi</span><span class="horaires-time">09h00–13h00<small>15h00–19h30</small></span>
-            <span class="horaires-day">Samedi</span><span class="horaires-time">09h00–13h00<small>15h00–19h30</small></span>
+            <span class="horaires-day">Mardi</span><span class="horaires-time">09h00–13h00<br>15h00–19h30</span>
+            <span class="horaires-day">Mercredi</span><span class="horaires-time">09h00–13h00<br>15h00–19h30</span>
+            <span class="horaires-day">Jeudi</span><span class="horaires-time">09h00–13h00<br>15h00–19h30</span>
+            <span class="horaires-day">Vendredi</span><span class="horaires-time">09h00–13h00<br>15h00–19h30</span>
+            <span class="horaires-day">Samedi</span><span class="horaires-time">09h00–13h00<br>15h00–19h30</span>
             <span class="horaires-day">Dimanche</span><span class="horaires-time">09h00–13h30</span>
           </div>
         </div>
@@ -1200,8 +1195,6 @@
       }, 2800);
     }
 
-    // Envoi du formulaire de contact en arrière-plan (AJAX),
-    // sans jamais quitter le site d'Eve Fleurs.
     var contactForm = document.getElementById('contactForm');
     var submitBtn = document.getElementById('formSubmitBtn');
     var submitLabel = document.getElementById('formSubmitLabel');
