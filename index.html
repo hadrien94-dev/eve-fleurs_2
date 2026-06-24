@@ -59,12 +59,6 @@
       display: flex; align-items: center; gap: 0.5rem;
     }
     
-    .nav-logo-tile {
-      width: 28px; height: 28px;
-      background-image: url("data:image/svg+xml,%3Csvg width='28' height='28' viewBox='0 0 28 28' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='28' height='28' fill='%23F8FAF9'/%3E%3Crect x='0.5' y='0.5' width='27' height='27' fill='none' stroke='%232C4C3B' stroke-width='0.8'/%3E%3Ccircle cx='14' cy='14' r='8' fill='none' stroke='%232C4C3B' stroke-width='1'/%3E%3Ccircle cx='14' cy='14' r='3' fill='%232C4C3B' opacity='0.3'/%3E%3C/svg%3E");
-      border-radius: 3px; flex-shrink: 0;
-    }
-    
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     
     .nav-links a {
@@ -107,6 +101,24 @@
     .hero-text {
       padding: 6rem 4rem 5rem 5rem;
       display: flex; flex-direction: column; justify-content: flex-start;
+    }
+
+    .delivery-bubble {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--warm-pale);
+      color: var(--rose);
+      border: 1px solid var(--rose);
+      padding: 0.5rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+      width: fit-content;
+      box-shadow: 0 4px 12px rgba(200, 107, 116, 0.15);
     }
     
     .hero-eyebrow {
@@ -805,7 +817,6 @@
 
   <nav>
     <a href="#accueil" class="nav-logo">
-      <div class="nav-logo-tile"></div>
       Eve Fleurs
     </a>
     <ul class="nav-links" id="navLinks">
@@ -843,6 +854,7 @@
   <div class="page active" id="page-accueil">
     <section class="hero">
       <div class="hero-text">
+        <div class="delivery-bubble">🚚 Livraison & À emporter</div>
         <p class="hero-eyebrow">Le Perreux-sur-Marne · Val-de-Marne</p>
         <h1 class="hero-title">Vos fleurs,<br><em>en toute confiance</em></h1>
         <p class="hero-desc">Depuis plus de quarante ans, Eve Fleurs accompagne les grands comme les petits moments de la vie : des roses choisies avec soin, des bouquets frais et des conseils sincères, sans jamais vous vendre plus que nécessaire.</p>
@@ -1599,7 +1611,7 @@
 
   <footer>
     <div>
-      <div class="footer-logo"><div class="footer-tile-sm"></div>Eve Fleurs</div>
+      <div class="footer-logo">Eve Fleurs</div>
       <p>Fleuriste<br>Le Perreux-sur-Marne</p>
       <p style="margin-top:0.8rem; color:rgba(255,255,255,0.7);">★★★★☆ 4,6 · 34 avis Google</p>
     </div>
