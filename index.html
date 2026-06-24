@@ -340,6 +340,56 @@
       background: none; border: none;
     }
 
+    .arrivage {
+      background: var(--warm-cream);
+      padding: 4.5rem 5rem;
+      border-top: 1px solid var(--green-pale);
+      border-bottom: 1px solid var(--green-pale);
+    }
+
+    .arrivage-head {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem;
+    }
+
+    .arrivage-head-text .section-eyebrow { justify-content: flex-start; margin-bottom: 0.6rem; }
+    .arrivage-head-text .section-eyebrow::after { display: none; }
+    .arrivage-head-text .section-title { text-align: left; }
+
+    .arrivage-updated {
+      font-size: 0.75rem; color: var(--ink-muted);
+      display: flex; align-items: center; gap: 0.4rem;
+      background: var(--white); border: 1px solid var(--green-pale);
+      padding: 0.4rem 0.9rem; border-radius: 20px; white-space: nowrap;
+    }
+    .arrivage-updated strong { color: var(--green); }
+
+    .arrivage-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem;
+    }
+
+    .arrivage-card {
+      background: var(--white); border-radius: 10px; overflow: hidden;
+      border: 1px solid var(--green-pale);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .arrivage-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(44,76,59,0.1); }
+
+    .arrivage-card-img { height: 150px; overflow: hidden; }
+    .arrivage-card-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .arrivage-card-body { padding: 1rem 1.1rem 1.2rem; }
+    .arrivage-card-name {
+      font-family: 'Playfair Display', serif; font-weight: 600;
+      font-size: 0.98rem; color: var(--ink); margin-bottom: 0.3rem;
+    }
+    .arrivage-card-desc { font-size: 0.8rem; color: var(--ink-muted); line-height: 1.55; }
+    .arrivage-card-tag {
+      display: inline-block; margin-top: 0.6rem; font-size: 0.66rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase; color: var(--green);
+      background: var(--green-pale); padding: 0.18rem 0.55rem; border-radius: 3px;
+    }
+
     .floral-showcase {
       background: var(--white-tile);
       padding: 4rem 5rem;
@@ -535,7 +585,116 @@
     }
     .map-container iframe { width: 100%; display: block; }
 
-    .legales-wrap { max-width: 780px; margin: 0 auto; padding: 5rem 2rem; }
+    #page-commander { background: var(--warm-cream); }
+
+    .commander-wrap { max-width: 1080px; margin: 0 auto; padding: 5rem 2rem; }
+
+    .commander-layout {
+      display: grid; grid-template-columns: 1.4fr 1fr; gap: 2.5rem; align-items: start;
+    }
+
+    .commander-products { display: flex; flex-direction: column; gap: 1.2rem; }
+
+    .order-card {
+      background: var(--white); border: 1px solid var(--warm-border);
+      border-radius: 10px; padding: 1.3rem 1.4rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+    }
+
+    .order-card-info { flex: 1; min-width: 180px; }
+    .order-card-name { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 1rem; color: var(--ink); }
+    .order-card-desc { font-size: 0.8rem; color: var(--ink-muted); margin-top: 0.2rem; line-height: 1.5; }
+    .order-card-price { font-weight: 700; color: var(--rose); font-size: 0.92rem; margin-top: 0.4rem; }
+
+    .order-qty {
+      display: flex; align-items: center; gap: 0.6rem;
+      border: 1.5px solid var(--cream-mid); border-radius: 30px; padding: 0.25rem 0.4rem;
+    }
+    .qty-btn {
+      width: 26px; height: 26px; border-radius: 50%; border: none;
+      background: var(--green-pale); color: var(--green); font-weight: 700;
+      cursor: pointer; font-size: 0.9rem; line-height: 1;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .qty-btn:hover { background: var(--green); color: var(--white); }
+    .qty-value { min-width: 18px; text-align: center; font-weight: 600; font-size: 0.9rem; }
+
+    .commander-summary {
+      background: var(--white); border: 1px solid var(--green-pale); border-radius: 10px;
+      padding: 1.6rem; position: sticky; top: 88px;
+    }
+    .commander-summary h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; margin-bottom: 1rem; }
+
+    .cart-empty { font-size: 0.85rem; color: var(--ink-muted); font-style: italic; }
+
+    .cart-line {
+      display: flex; justify-content: space-between; font-size: 0.85rem;
+      padding: 0.4rem 0; border-bottom: 1px dashed var(--cream-mid); color: var(--ink);
+    }
+    .cart-line span:last-child { color: var(--ink-muted); }
+
+    .cart-total {
+      display: flex; justify-content: space-between; font-weight: 700;
+      font-size: 0.95rem; margin-top: 0.8rem; padding-top: 0.8rem;
+      border-top: 1.5px solid var(--green-pale); color: var(--green);
+    }
+
+    .commander-divider { height: 1px; background: var(--green-pale); margin: 1.4rem 0; }
+
+    .pickup-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+
+    .commander-note {
+      font-size: 0.78rem; color: var(--ink-muted); line-height: 1.6;
+      background: var(--warm-cream); border-radius: 6px; padding: 0.7rem 0.9rem; margin-top: 1rem;
+    }
+
+    #page-blog { background: var(--cream); }
+
+    .blog-wrap { max-width: 1080px; margin: 0 auto; padding: 5rem 2rem; }
+
+    .blog-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
+    }
+
+    .blog-card {
+      background: var(--white); border: 1px solid var(--cream-mid); border-radius: 10px;
+      overflow: hidden; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+      display: flex; flex-direction: column;
+    }
+    .blog-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(44,76,59,0.1); }
+
+    .blog-card-img { height: 190px; overflow: hidden; }
+    .blog-card-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .blog-card-body { padding: 1.3rem 1.4rem 1.5rem; flex: 1; display: flex; flex-direction: column; }
+    .blog-card-eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--rose); margin-bottom: 0.5rem; }
+    .blog-card-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--ink); margin-bottom: 0.6rem; line-height: 1.3; }
+    .blog-card-excerpt { font-size: 0.85rem; color: var(--ink-muted); line-height: 1.65; flex: 1; }
+    .blog-card-link {
+      margin-top: 1rem; font-size: 0.8rem; font-weight: 600; color: var(--green);
+      display: inline-flex; align-items: center; gap: 0.4rem;
+    }
+
+    .blog-modal {
+      position: fixed; inset: 0; background: rgba(26,29,26,0.6);
+      z-index: 999; display: none; align-items: center; justify-content: center; padding: 2rem;
+    }
+    .blog-modal.open { display: flex; }
+    .blog-modal-card {
+      background: var(--white); max-width: 640px; width: 100%; max-height: 85vh;
+      overflow-y: auto; border-radius: 12px; padding: 2.5rem; position: relative;
+    }
+    .blog-modal-close {
+      position: absolute; top: 1.2rem; right: 1.4rem; background: var(--cream-mid);
+      border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer;
+      font-size: 1.1rem; color: var(--ink-muted); display: flex; align-items: center; justify-content: center;
+    }
+    .blog-modal-eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rose); margin-bottom: 0.6rem; }
+    .blog-modal-title { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--ink); margin-bottom: 1.2rem; line-height: 1.25; }
+    .blog-modal-body p { font-size: 0.92rem; line-height: 1.8; color: var(--ink-muted); margin-bottom: 1rem; }
+    .blog-modal-body strong { color: var(--ink); }
+
+    #page-legal { background: var(--cream); }
     .legales-wrap h1 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 0.5rem; }
     .legales-tabs { display: flex; gap: 0.5rem; margin: 2rem 0 3rem; flex-wrap: wrap; }
     .legales-tab {
@@ -548,6 +707,14 @@
     .legales-section.active { display: block; }
     .legales-section h2 { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin: 2rem 0 0.7rem; color: var(--ink); }
     .legales-section p, .legales-section li { font-size: 0.88rem; line-height: 1.8; color: var(--ink-muted); margin-bottom: 0.7rem; }
+    .legal-todo {
+      background: var(--warm-pale); color: var(--rose); border-radius: 3px;
+      padding: 0.05rem 0.4rem; font-weight: 600; font-style: normal;
+    }
+    .legal-callout {
+      background: var(--warm-cream); border: 1px solid var(--green-pale); border-radius: 8px;
+      padding: 1rem 1.2rem; margin-bottom: 2rem; font-size: 0.85rem; color: var(--ink); line-height: 1.7;
+    }
     
     footer {
       background: var(--green); color: rgba(255,255,255,0.6);
@@ -581,6 +748,11 @@
       .hero-text { padding: 3rem 1.5rem; }
       .hero-photo-mobile { display: block; width: 100%; height: 240px; object-fit: cover; border-radius: 8px; margin-top: 1.5rem; }
       .features { grid-template-columns: 1fr; padding: 3rem 1.5rem; gap: 2rem; }
+      .arrivage { padding: 3rem 1.5rem; }
+      .arrivage-grid { grid-template-columns: 1fr 1fr; }
+      .commander-layout { grid-template-columns: 1fr; }
+      .commander-summary { position: static; }
+      .blog-grid { grid-template-columns: 1fr; }
       .histoire-hero { grid-template-columns: 1fr; }
       .histoire-values { grid-template-columns: 1fr 1fr; }
       .contact-wrap { grid-template-columns: 1fr; }
@@ -597,8 +769,9 @@
         max-height: 0; opacity: 0; transform: translateY(-8px); overflow: hidden;
         transition: all 0.3s ease; border-bottom: none;
       }
-      .nav-links.open { max-height: 400px; opacity: 1; transform: translateY(0); padding: 1.5rem 2rem; border-bottom: 1px solid var(--cream-mid); }
+      .nav-links.open { max-height: 500px; opacity: 1; transform: translateY(0); padding: 1.5rem 2rem; border-bottom: 1px solid var(--cream-mid); }
       .nav-controls { gap: 1rem; }
+      .nav-cta-btn { display: none; }
       .nav-burger { display: flex; }
       .photo-grid { grid-template-columns: 1fr 1fr; }
     }
@@ -606,6 +779,10 @@
     @media (max-width: 580px) {
       .photo-grid { grid-template-columns: 1fr; grid-auto-rows: 220px; }
       .histoire-values { grid-template-columns: 1fr; }
+      .arrivage-grid { grid-template-columns: 1fr; }
+      .arrivage-head { flex-direction: column; align-items: flex-start; }
+      .pickup-row { grid-template-columns: 1fr; }
+      .order-card { flex-direction: column; align-items: stretch; }
     }
   </style>
 </head>
@@ -619,13 +796,16 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="#accueil">Accueil</a></li>
       <li><a href="#menu">Créations</a></li>
+      <li><a href="#commander">Commander</a></li>
       <li><a href="#galerie">Galerie</a></li>
       <li><a href="#histoire">Notre histoire</a></li>
+      <li><a href="#blog">Blog</a></li>
       <li><a href="#avis">Avis</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     
     <div class="nav-controls">
+      <a href="#commander" class="nav-social-btn nav-cta-btn" style="padding:0.55rem 1.1rem; text-transform:none; letter-spacing:0; font-size:0.82rem;">Commander</a>
       <div class="nav-socials">
         <a href="tel:+33143242164" class="nav-social-btn icon-only" title="Appeler">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -687,6 +867,53 @@
         <div class="feature-emoji">🚚</div>
         <h3>Livraison fiable</h3>
         <p>Commandez par téléphone ou en boutique, même à distance : votre bouquet est livré rapidement et exactement comme convenu.</p>
+      </div>
+    </section>
+
+    <!--
+      ARRIVAGE DE LA SEMAINE — à mettre à jour à la main chaque semaine.
+      Pour changer une fleur : modifiez le texte (nom, description) et l'image (src) de chaque .arrivage-card ci-dessous,
+      et la date dans .arrivage-updated strong. Pas besoin de toucher au reste du site.
+    -->
+    <section class="arrivage">
+      <div class="arrivage-head">
+        <div class="arrivage-head-text">
+          <p class="section-eyebrow">Fraîcheur du moment</p>
+          <h2 class="section-title">L'arrivage <em>de la semaine</em></h2>
+        </div>
+        <div class="arrivage-updated">Dernière mise à jour : <strong>semaine du 23 juin</strong></div>
+      </div>
+      <div class="arrivage-grid">
+        <div class="arrivage-card">
+          <div class="arrivage-card-img"><img src="https://images.unsplash.com/photo-1496062031456-07b8f162a322?auto=format&fit=crop&w=500&q=80" alt="Pivoines fraîches" loading="lazy"></div>
+          <div class="arrivage-card-body">
+            <div class="arrivage-card-name">Pivoines</div>
+            <p class="arrivage-card-desc">Tout juste arrivées, en quantité limitée cette semaine.</p>
+            <span class="arrivage-card-tag">Nouveauté</span>
+          </div>
+        </div>
+        <div class="arrivage-card">
+          <div class="arrivage-card-img"><img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=500&q=80" alt="Roses Eve Fleurs" loading="lazy"></div>
+          <div class="arrivage-card-body">
+            <div class="arrivage-card-name">Roses de saison</div>
+            <p class="arrivage-card-desc">Notre spécialité, toujours sélectionnée avec exigence.</p>
+            <span class="arrivage-card-tag">Best-seller</span>
+          </div>
+        </div>
+        <div class="arrivage-card">
+          <div class="arrivage-card-img"><img src="https://images.unsplash.com/photo-1487070183336-b863922373d4?auto=format&fit=crop&w=500&q=80" alt="Renoncules" loading="lazy"></div>
+          <div class="arrivage-card-body">
+            <div class="arrivage-card-name">Renoncules</div>
+            <p class="arrivage-card-desc">Des couleurs délicates, parfaites pour un bouquet de saison.</p>
+          </div>
+        </div>
+        <div class="arrivage-card">
+          <div class="arrivage-card-img"><img src="https://images.unsplash.com/photo-1455659817273-f96807779a8a?auto=format&fit=crop&w=500&q=80" alt="Eucalyptus" loading="lazy"></div>
+          <div class="arrivage-card-body">
+            <div class="arrivage-card-name">Eucalyptus</div>
+            <p class="arrivage-card-desc">Pour habiller vos compositions d'un feuillage durable et parfumé.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -777,6 +1004,133 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div class="page" id="page-commander">
+    <div class="commander-wrap">
+      <div class="section-header">
+        <p class="section-eyebrow">Commande en ligne</p>
+        <h2 class="section-title">Commander pour un <em>retrait en boutique</em></h2>
+        <p class="section-sub">Choisissez vos fleurs, le jour et l'heure qui vous conviennent : nous préparons votre commande pour un retrait direct au 126 avenue du Général de Gaulle.</p>
+      </div>
+
+      <form id="orderForm">
+        <div class="commander-layout">
+          <div class="commander-products" id="orderProducts">
+            <div class="order-card" data-name="Bouquet de Roses" data-price="30">
+              <div class="order-card-info">
+                <div class="order-card-name">Bouquet de Roses</div>
+                <div class="order-card-desc">Notre spécialité maison, roses sélectionnées avec exigence.</div>
+                <div class="order-card-price">Dès 30 €</div>
+              </div>
+              <div class="order-qty">
+                <button type="button" class="qty-btn" onclick="changeQty(this,-1)">−</button>
+                <span class="qty-value">0</span>
+                <button type="button" class="qty-btn" onclick="changeQty(this,1)">+</button>
+              </div>
+            </div>
+            <div class="order-card" data-name="Roses & Lys" data-price="20">
+              <div class="order-card-info">
+                <div class="order-card-name">Roses & Lys</div>
+                <div class="order-card-desc">Une composition élégante mêlant roses et lys.</div>
+                <div class="order-card-price">Dès 20 €</div>
+              </div>
+              <div class="order-qty">
+                <button type="button" class="qty-btn" onclick="changeQty(this,-1)">−</button>
+                <span class="qty-value">0</span>
+                <button type="button" class="qty-btn" onclick="changeQty(this,1)">+</button>
+              </div>
+            </div>
+            <div class="order-card" data-name="Bouquet de Saison" data-price="20">
+              <div class="order-card-info">
+                <div class="order-card-name">Bouquet de Saison</div>
+                <div class="order-card-desc">Composition assemblée avec les plus belles fleurs du moment.</div>
+                <div class="order-card-price">Dès 20 €</div>
+              </div>
+              <div class="order-qty">
+                <button type="button" class="qty-btn" onclick="changeQty(this,-1)">−</button>
+                <span class="qty-value">0</span>
+                <button type="button" class="qty-btn" onclick="changeQty(this,1)">+</button>
+              </div>
+            </div>
+            <div class="order-card" data-name="Plante d'Intérieur" data-price="18">
+              <div class="order-card-info">
+                <div class="order-card-name">Plante d'Intérieur</div>
+                <div class="order-card-desc">Une sélection de plantes vertes et fleuries.</div>
+                <div class="order-card-price">Dès 18 €</div>
+              </div>
+              <div class="order-qty">
+                <button type="button" class="qty-btn" onclick="changeQty(this,-1)">−</button>
+                <span class="qty-value">0</span>
+                <button type="button" class="qty-btn" onclick="changeQty(this,1)">+</button>
+              </div>
+            </div>
+            <div class="order-card" data-name="Composition sur-mesure (mariage, devis...)" data-price="0">
+              <div class="order-card-info">
+                <div class="order-card-name">Composition sur-mesure</div>
+                <div class="order-card-desc">Mariage, cérémonie, deuil — précisez votre besoin dans les notes ci-contre.</div>
+                <div class="order-card-price">Sur devis</div>
+              </div>
+              <div class="order-qty">
+                <button type="button" class="qty-btn" onclick="changeQty(this,-1)">−</button>
+                <span class="qty-value">0</span>
+                <button type="button" class="qty-btn" onclick="changeQty(this,1)">+</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="commander-summary">
+            <h3>Votre commande</h3>
+            <div id="cartLines"><p class="cart-empty">Aucun article sélectionné pour le moment.</p></div>
+            <div class="cart-total" id="cartTotal" style="display:none;"><span>Total estimé</span><span id="cartTotalValue">0 €</span></div>
+
+            <div class="commander-divider"></div>
+
+            <div class="form-group">
+              <label>Votre nom</label>
+              <input type="text" id="orderName" required placeholder="Marie Dupont" />
+            </div>
+            <div class="form-group">
+              <label>Téléphone</label>
+              <input type="tel" id="orderPhone" required placeholder="06 12 34 56 78" />
+            </div>
+            <div class="form-group">
+              <label>E-mail</label>
+              <input type="email" id="orderEmail" required placeholder="marie@email.com" />
+            </div>
+            <div class="pickup-row">
+              <div class="form-group">
+                <label>Date de retrait</label>
+                <input type="date" id="orderDate" required />
+              </div>
+              <div class="form-group">
+                <label>Heure souhaitée</label>
+                <select id="orderTime" required>
+                  <option value="">Choisir...</option>
+                  <option>09h00</option><option>09h30</option><option>10h00</option><option>10h30</option>
+                  <option>11h00</option><option>11h30</option><option>12h00</option><option>12h30</option>
+                  <option>15h00</option><option>15h30</option><option>16h00</option><option>16h30</option>
+                  <option>17h00</option><option>17h30</option><option>18h00</option><option>18h30</option><option>19h00</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Notes (couleurs, occasion...)</label>
+              <textarea id="orderNotes" placeholder="Par exemple : bouquet pour un anniversaire, tons roses et blancs."></textarea>
+            </div>
+
+            <button type="submit" class="form-submit" id="orderSubmitBtn">
+              <span class="spinner"></span>
+              <span id="orderSubmitLabel">Envoyer ma demande de commande</span>
+            </button>
+            <p class="form-error" id="orderError">Une erreur est survenue. Merci de réessayer ou de nous appeler au 01 43 24 21 64.</p>
+            <div class="toast-inline" id="orderToastInline">✓ Demande envoyée ! Nous vous confirmons la commande par téléphone.</div>
+
+            <p class="commander-note">Cette commande est une <strong>demande de réservation</strong> : nous vous recontactons rapidement pour confirmer la disponibilité, le prix exact et l'horaire de retrait. Boutique fermée le lundi — merci de choisir un autre jour.</p>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 
@@ -1012,6 +1366,63 @@
     </div>
   </div>
 
+  <div class="page" id="page-blog">
+    <div class="blog-wrap">
+      <div class="section-header">
+        <p class="section-eyebrow">Conseils du fleuriste</p>
+        <h2 class="section-title">Le <em>Blog</em> d'Eve Fleurs</h2>
+        <p class="section-sub">Nos conseils pour faire durer vos fleurs et bien choisir vos compositions, saison après saison.</p>
+      </div>
+      <div class="blog-grid" id="blogGrid">
+        <div class="blog-card" onclick="openBlogPost('roses')">
+          <div class="blog-card-img"><img src="https://images.unsplash.com/photo-1455659817273-f96807779a8a?auto=format&fit=crop&w=700&q=80" alt="Bouquet de roses fraîches" loading="lazy"></div>
+          <div class="blog-card-body">
+            <div class="blog-card-eyebrow">Entretien</div>
+            <div class="blog-card-title">Comment faire durer vos roses plus longtemps</div>
+            <p class="blog-card-excerpt">Les gestes simples à faire dès le retour à la maison pour profiter de votre bouquet plusieurs jours de plus.</p>
+            <span class="blog-card-link">Lire l'article →</span>
+          </div>
+        </div>
+        <div class="blog-card" onclick="openBlogPost('saison')">
+          <div class="blog-card-img"><img src="https://images.unsplash.com/photo-1487070183336-b863922373d4?auto=format&fit=crop&w=700&q=80" alt="Bouquet de saison" loading="lazy"></div>
+          <div class="blog-card-body">
+            <div class="blog-card-eyebrow">Choisir ses fleurs</div>
+            <div class="blog-card-title">Bien choisir un bouquet selon la saison</div>
+            <p class="blog-card-excerpt">Pourquoi un bouquet de saison tient mieux, coûte souvent moins cher, et comment le reconnaître.</p>
+            <span class="blog-card-link">Lire l'article →</span>
+          </div>
+        </div>
+        <div class="blog-card" onclick="openBlogPost('plantes')">
+          <div class="blog-card-img"><img src="https://images.unsplash.com/photo-1493552152660-f915ab47ae9d?auto=format&fit=crop&w=700&q=80" alt="Plante verte d'intérieur" loading="lazy"></div>
+          <div class="blog-card-body">
+            <div class="blog-card-eyebrow">Plantes</div>
+            <div class="blog-card-title">Entretenir vos plantes d'intérieur sans stress</div>
+            <p class="blog-card-excerpt">Arrosage, lumière, rempotage : les bases pour garder vos plantes vertes en pleine forme.</p>
+            <span class="blog-card-link">Lire l'article →</span>
+          </div>
+        </div>
+        <div class="blog-card" onclick="openBlogPost('mariage')">
+          <div class="blog-card-img"><img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=700&q=80" alt="Bouquet de mariée" loading="lazy"></div>
+          <div class="blog-card-body">
+            <div class="blog-card-eyebrow">Mariage</div>
+            <div class="blog-card-title">Choisir les fleurs de son mariage : nos repères</div>
+            <p class="blog-card-excerpt">Saison, couleurs, tenue dans le temps : ce qu'il faut anticiper pour le bouquet et la décoration florale.</p>
+            <span class="blog-card-link">Lire l'article →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blog-modal" id="blogModal" onclick="if(event.target===this) closeBlogPost()">
+    <div class="blog-modal-card">
+      <button class="blog-modal-close" onclick="closeBlogPost()">✕</button>
+      <div class="blog-modal-eyebrow" id="blogModalEyebrow"></div>
+      <div class="blog-modal-title" id="blogModalTitle"></div>
+      <div class="blog-modal-body" id="blogModalBody"></div>
+    </div>
+  </div>
+
   <div class="page" id="page-contact">
     <div class="contact-wrap">
       <div class="contact-info">
@@ -1085,6 +1496,72 @@
     </div>
   </div>
 
+  <div class="page" id="page-legal">
+    <div class="legales-wrap">
+      <h1>Mentions légales & confidentialité</h1>
+      <p style="font-size:0.88rem; color:var(--ink-muted); line-height:1.7;">Informations légales relatives au site et à l'utilisation de vos données personnelles.</p>
+
+      <div class="legales-tabs">
+        <button class="legales-tab active" onclick="showLegalTab('mentions', event)">Mentions légales</button>
+        <button class="legales-tab" onclick="showLegalTab('confidentialite', event)">Confidentialité (RGPD)</button>
+      </div>
+
+      <div class="legales-section active" id="legal-mentions">
+        <div class="legal-callout">⚠️ Champs à compléter par le commerçant avant la mise en ligne : raison sociale, statut juridique, SIRET, et nom du directeur de la publication (marqués <span class="legal-todo">à compléter</span>).</div>
+
+        <h2>Éditeur du site</h2>
+        <p>Le présent site est édité par : <span class="legal-todo">[Raison sociale — ex. SARL Eve Fleurs / Nom Prénom EI] — à compléter</span>.</p>
+        <ul>
+          <li>Forme juridique : <span class="legal-todo">à compléter</span> (ex. entreprise individuelle, SARL, EURL...)</li>
+          <li>Adresse du siège : 126 Av. du Général de Gaulle, 94170 Le Perreux-sur-Marne</li>
+          <li>Numéro SIRET / RCS : <span class="legal-todo">à compléter</span></li>
+          <li>Téléphone : <a href="tel:+33143242164">01 43 24 21 64</a></li>
+          <li>E-mail : <span class="legal-todo">à compléter</span></li>
+          <li>Directeur de la publication : <span class="legal-todo">à compléter (généralement le gérant de la boutique)</span></li>
+        </ul>
+
+        <h2>Hébergement</h2>
+        <p>Le site est hébergé par :</p>
+        <ul>
+          <li>GitHub, Inc.</li>
+          <li>88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis</li>
+          <li>Site : <a href="https://github.com" target="_blank">github.com</a></li>
+        </ul>
+
+        <h2>Propriété intellectuelle</h2>
+        <p>L'ensemble des textes, photographies et éléments graphiques présents sur ce site est la propriété d'Eve Fleurs, sauf mention contraire, et ne peut être reproduit sans autorisation préalable.</p>
+
+        <h2>Limitation de responsabilité</h2>
+        <p>Les informations (produits, tarifs, horaires) sont fournies à titre indicatif et peuvent évoluer. Eve Fleurs ne pourra être tenu responsable des éventuelles erreurs ou omissions, ni de l'indisponibilité ponctuelle du site.</p>
+      </div>
+
+      <div class="legales-section" id="legal-confidentialite">
+        <h2>Données collectées</h2>
+        <p>Le formulaire de contact et le formulaire de commande de ce site collectent les données suivantes : nom, adresse e-mail, numéro de téléphone, et le contenu de votre message ou de votre demande de commande (produits, date et heure de retrait souhaitées).</p>
+
+        <h2>Finalité du traitement</h2>
+        <p>Ces données sont utilisées exclusivement pour répondre à votre demande, préparer et confirmer votre commande, et vous recontacter si nécessaire. Elles ne sont ni revendues, ni utilisées à des fins de prospection commerciale sans votre accord.</p>
+
+        <h2>Destinataires des données</h2>
+        <p>Vos données sont reçues par Eve Fleurs. L'envoi des formulaires s'appuie sur le prestataire technique Web3Forms, qui agit uniquement comme intermédiaire technique pour transmettre le message par e-mail et n'utilise pas ces données pour son propre compte.</p>
+
+        <h2>Durée de conservation</h2>
+        <p>Les données transmises via les formulaires sont conservées le temps nécessaire au traitement de votre demande ou de votre commande, puis supprimées dans un délai raisonnable, sauf obligation légale de conservation plus longue (notamment comptable).</p>
+
+        <h2>Cookies et services tiers</h2>
+        <p>Ce site n'utilise pas de cookies de suivi publicitaire. Une carte Google Maps est intégrée sur certaines pages : Google peut, à cette occasion, déposer ses propres cookies techniques liés à l'affichage de la carte, indépendamment de notre volonté.</p>
+
+        <h2>Vos droits</h2>
+        <p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification, d'effacement et d'opposition concernant vos données personnelles. Pour exercer ces droits, vous pouvez nous contacter :</p>
+        <ul>
+          <li>Par téléphone : <a href="tel:+33143242164">01 43 24 21 64</a></li>
+          <li>Par e-mail : <span class="legal-todo">à compléter</span></li>
+        </ul>
+        <p>Vous disposez également du droit d'introduire une réclamation auprès de la CNIL (Commission Nationale de l'Informatique et des Libertés) si vous estimez que vos droits ne sont pas respectés.</p>
+      </div>
+    </div>
+  </div>
+
   <footer>
     <div>
       <div class="footer-logo"><div class="footer-tile-sm"></div>Eve Fleurs</div>
@@ -1095,8 +1572,10 @@
       <h4>Navigation</h4>
       <a href="#accueil">Accueil</a>
       <a href="#menu">Créations</a>
+      <a href="#commander">Commander</a>
       <a href="#galerie">Galerie</a>
       <a href="#histoire">Notre histoire</a>
+      <a href="#blog">Blog</a>
       <a href="#avis">Avis</a>
       <a href="#contact">Contact</a>
     </div>
@@ -1109,7 +1588,10 @@
   </footer>
   <div class="footer-bottom">
     <span>© 2026 Eve Fleurs — Le Perreux-sur-Marne</span>
-    <span>Fait avec passion 🌿</span>
+    <span style="display:flex; gap:1.5rem; align-items:center;">
+      <a href="#legal" style="display:inline; color:inherit;">Mentions légales & confidentialité</a>
+      <span>Fait avec passion 🌿</span>
+    </span>
   </div>
 
   <div class="lightbox" id="lightbox" onclick="closeLightbox()">
@@ -1183,7 +1665,10 @@
     }
     
     document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'Escape') {
+        closeLightbox();
+        closeBlogPost();
+      }
     });
 
     function showToast(msg) {
@@ -1242,6 +1727,198 @@
           formError.classList.add('show');
         });
     });
+    // ---------- Commande en ligne (panier + retrait en boutique) ----------
+    function changeQty(btn, delta) {
+      var card = btn.closest('.order-card');
+      var span = card.querySelector('.qty-value');
+      var val = Math.max(0, parseInt(span.textContent, 10) + delta);
+      span.textContent = val;
+      updateCart();
+    }
+
+    function updateCart() {
+      var cards = document.querySelectorAll('#orderProducts .order-card');
+      var lines = [];
+      var total = 0;
+      var hasOnDevis = false;
+
+      cards.forEach(function (card) {
+        var qty = parseInt(card.querySelector('.qty-value').textContent, 10);
+        if (qty > 0) {
+          var name = card.getAttribute('data-name');
+          var price = parseFloat(card.getAttribute('data-price'));
+          if (price > 0) {
+            total += price * qty;
+            lines.push({ name: name, qty: qty, label: (price * qty) + ' €' });
+          } else {
+            hasOnDevis = true;
+            lines.push({ name: name, qty: qty, label: 'Sur devis' });
+          }
+        }
+      });
+
+      var cartLinesEl = document.getElementById('cartLines');
+      var cartTotalEl = document.getElementById('cartTotal');
+
+      if (lines.length === 0) {
+        cartLinesEl.innerHTML = '<p class="cart-empty">Aucun article sélectionné pour le moment.</p>';
+        cartTotalEl.style.display = 'none';
+        return;
+      }
+
+      cartLinesEl.innerHTML = lines.map(function (l) {
+        return '<div class="cart-line"><span>' + l.qty + ' × ' + l.name + '</span><span>' + l.label + '</span></div>';
+      }).join('');
+
+      document.getElementById('cartTotalValue').textContent = (hasOnDevis ? 'à partir de ' : '') + total + ' €';
+      cartTotalEl.style.display = 'flex';
+    }
+
+    function getCartSummaryText() {
+      var cards = document.querySelectorAll('#orderProducts .order-card');
+      var parts = [];
+      cards.forEach(function (card) {
+        var qty = parseInt(card.querySelector('.qty-value').textContent, 10);
+        if (qty > 0) parts.push(qty + ' × ' + card.getAttribute('data-name'));
+      });
+      return parts.join(', ');
+    }
+
+    var orderDateInput = document.getElementById('orderDate');
+    if (orderDateInput) {
+      var todayISO = new Date().toISOString().split('T')[0];
+      orderDateInput.setAttribute('min', todayISO);
+      orderDateInput.addEventListener('change', function () {
+        var d = new Date(this.value + 'T00:00:00');
+        if (this.value && d.getDay() === 1) {
+          this.setCustomValidity('La boutique est fermée le lundi, merci de choisir un autre jour.');
+          this.reportValidity();
+        } else {
+          this.setCustomValidity('');
+        }
+      });
+    }
+
+    var orderForm = document.getElementById('orderForm');
+    if (orderForm) {
+      orderForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        var cartText = getCartSummaryText();
+        if (!cartText) {
+          alert('Merci de sélectionner au moins un article avant d\'envoyer votre demande.');
+          return;
+        }
+
+        var dateVal = document.getElementById('orderDate').value;
+        var dObj = new Date(dateVal + 'T00:00:00');
+        if (dateVal && dObj.getDay() === 1) {
+          alert('La boutique est fermée le lundi, merci de choisir un autre jour de retrait.');
+          return;
+        }
+
+        var orderSubmitBtn = document.getElementById('orderSubmitBtn');
+        var orderSubmitLabel = document.getElementById('orderSubmitLabel');
+        var orderError = document.getElementById('orderError');
+        var orderToastInline = document.getElementById('orderToastInline');
+
+        orderError.classList.remove('show');
+        orderToastInline.classList.remove('show');
+        orderSubmitBtn.disabled = true;
+        orderSubmitBtn.classList.add('loading');
+        orderSubmitLabel.textContent = 'Envoi en cours...';
+
+        var payload = {
+          access_key: 'd30faa67-b86f-4cb9-890b-c2167e1726ae',
+          subject: 'Nouvelle demande de commande — Eve Fleurs',
+          Nom_Complet: document.getElementById('orderName').value,
+          Telephone: document.getElementById('orderPhone').value,
+          email: document.getElementById('orderEmail').value,
+          Commande: cartText,
+          Date_Retrait_Souhaitee: dateVal,
+          Heure_Retrait_Souhaitee: document.getElementById('orderTime').value,
+          Notes: document.getElementById('orderNotes').value
+        };
+
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(payload)
+        })
+          .then(function (response) { return response.json(); })
+          .then(function (data) {
+            orderSubmitBtn.disabled = false;
+            orderSubmitBtn.classList.remove('loading');
+            orderSubmitLabel.textContent = 'Envoyer ma demande de commande';
+
+            if (data && data.success) {
+              orderForm.reset();
+              document.querySelectorAll('#orderProducts .qty-value').forEach(function (s) { s.textContent = '0'; });
+              updateCart();
+              orderToastInline.classList.add('show');
+              showToast('🌸 Demande de commande envoyée !');
+            } else {
+              orderError.classList.add('show');
+            }
+          })
+          .catch(function () {
+            orderSubmitBtn.disabled = false;
+            orderSubmitBtn.classList.remove('loading');
+            orderSubmitLabel.textContent = 'Envoyer ma demande de commande';
+            orderError.classList.add('show');
+          });
+      });
+    }
+
+    // ---------- Blog ----------
+    var blogPosts = {
+      roses: {
+        eyebrow: 'Entretien',
+        title: 'Comment faire durer vos roses plus longtemps',
+        body: '<p>Un bouquet de roses bien entretenu peut facilement tenir une semaine de plus. Tout commence dès votre arrivée à la maison : recoupez chaque tige en biseau, sous l\'eau courante, sur environ deux centimètres. Cette coupe fraîche permet à la tige d\'absorber l\'eau sans bulle d\'air qui bloquerait la circulation.</p><p><strong>Retirez les feuilles</strong> qui se trouveraient immergées dans le vase : elles pourrissent rapidement et favorisent le développement de bactéries qui font faner les fleurs plus vite. Si vous disposez d\'un sachet nutritif fourni avec votre bouquet, diluez-le dans l\'eau : il contient du sucre pour nourrir la fleur et un agent qui limite les bactéries.</p><p>Changez l\'eau du vase tous les deux jours environ, et recoupez légèrement les tiges à chaque changement. Installez le bouquet loin d\'une source de chaleur, d\'un rayon de soleil direct et d\'une corbeille de fruits : les fruits dégagent de l\'éthylène, un gaz qui accélère le vieillissement des fleurs coupées.</p><p>Enfin, la nuit, un vase posé dans une pièce fraîche prolongera encore la tenue de vos roses. Si une fleur commence à faner avant les autres, n\'hésitez pas à la retirer : elle libère des substances qui accélèrent le flétrissement du reste du bouquet.</p>'
+      },
+      saison: {
+        eyebrow: 'Choisir ses fleurs',
+        title: 'Bien choisir un bouquet selon la saison',
+        body: '<p>Une fleur de saison a généralement moins voyagé, elle est cueillie plus proche de sa pleine fraîcheur et se conserve donc mieux chez vous. C\'est aussi souvent un choix plus économique, puisque la production est plus abondante au moment où la fleur est naturellement disponible.</p><p>Au printemps, on retrouve les tulipes, les renoncules et les premières pivoines, avec des teintes douces et lumineuses. L\'été met à l\'honneur les dahlias, les tournesols et les roses, qui profitent de la chaleur pour s\'épanouir pleinement.</p><p>À l\'automne, les chrysanthèmes et les baies apportent des tons chauds, cuivrés et profonds, parfaits pour des compositions plus denses. En hiver, l\'amaryllis, le houx et les roses cultivées sous serre prennent le relais, souvent associés à des feuillages persistants pour plus de tenue.</p><p>N\'hésitez pas à nous demander conseil en boutique : nous vous orientons toujours vers ce qui est frais et disponible au moment de votre visite, plutôt que vers ce qui se vend le plus cher.</p>'
+      },
+      plantes: {
+        eyebrow: 'Plantes',
+        title: 'Entretenir vos plantes d\'intérieur sans stress',
+        body: '<p>La cause la plus fréquente de plante qui dépérit n\'est pas le manque d\'eau, mais l\'excès : un arrosage trop fréquent fait pourrir les racines. La bonne habitude consiste à vérifier l\'humidité de la terre avec le doigt avant d\'arroser, et à arroser seulement lorsque les premiers centimètres sont secs.</p><p>La lumière compte tout autant que l\'eau. La plupart des plantes vertes d\'intérieur apprécient une lumière vive mais indirecte : près d\'une fenêtre, sans être collées à la vitre en plein soleil. Une plante qui s\'étiole ou penche vers la lumière manque probablement de clarté.</p><p>Évitez de placer vos plantes près d\'un radiateur ou d\'une source de chaleur sèche, qui dessèche l\'air et les feuilles. Un dépoussiérage régulier des feuilles avec un chiffon humide les aide aussi à mieux respirer et à capter la lumière.</p><p>Quand les racines commencent à sortir par le trou de drainage du pot, c\'est le signal qu\'il est temps de rempoter, idéalement au printemps, dans un pot à peine plus grand que le précédent.</p>'
+      },
+      mariage: {
+        eyebrow: 'Mariage',
+        title: 'Choisir les fleurs de son mariage : nos repères',
+        body: '<p>Le premier repère, c\'est la saison de votre mariage : les fleurs de saison seront plus fraîches le jour J, plus faciles à obtenir, et souvent plus raisonnables en budget que des variétés importées hors saison.</p><p>Pensez ensuite à l\'harmonie avec le lieu et la décoration : la couleur des fleurs doit dialoguer avec celle de la robe, des tenues du cortège et du décor de la salle, sans nécessairement les copier à l\'identique.</p><p>La tenue dans le temps est un point souvent sous-estimé : un bouquet de mariée doit rester beau plusieurs heures, entre la préparation, la cérémonie et les photos. Certaines fleurs, comme les roses bien sélectionnées, sont idéales pour leur résistance.</p><p>Enfin, réservez votre fleuriste suffisamment à l\'avance, particulièrement en haute saison de mariages. Venez nous voir en boutique avec vos inspirations : nous vous conseillons sincèrement sur ce qui sera à la fois beau, adapté à votre budget, et réalisable pour votre date.</p>'
+      }
+    };
+
+    function openBlogPost(id) {
+      var post = blogPosts[id];
+      if (!post) return;
+      document.getElementById('blogModalEyebrow').textContent = post.eyebrow;
+      document.getElementById('blogModalTitle').textContent = post.title;
+      document.getElementById('blogModalBody').innerHTML = post.body;
+      document.getElementById('blogModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeBlogPost() {
+      document.getElementById('blogModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // ---------- Mentions légales : onglets ----------
+    function showLegalTab(name, ev) {
+      var sections = document.querySelectorAll('.legales-section');
+      for (var i = 0; i < sections.length; i++) sections[i].classList.remove('active');
+      document.getElementById('legal-' + name).classList.add('active');
+
+      var tabs = document.querySelectorAll('.legales-tab');
+      for (var j = 0; j < tabs.length; j++) tabs[j].classList.remove('active');
+      if (ev && ev.target) ev.target.classList.add('active');
+    }
   </script>
 </body>
 </html>
